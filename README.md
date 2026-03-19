@@ -13,3 +13,8 @@ to group services or related components together
 and access directly as 
 localhost:3000/foldername1
 localhost:3000/foldername2 
+
+
+
+#3 THis commit contains changes about calling APU -> nc routes.ts contains api -> sayhipage displays data passed from api /apis/sayhi
+
