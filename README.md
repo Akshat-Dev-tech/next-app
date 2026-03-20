@@ -18,3 +18,4 @@ localhost:3000/foldername2
 
 #3 THis commit contains changes about calling APU -> nc routes.ts contains api -> sayhipage displays data passed from api /apis/sayhi
 
+#4 This commit conatins chnage about applying css -> .module.css for compnent level css -> import styles -> styles.classname, for global css you can directly use it
