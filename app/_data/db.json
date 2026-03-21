@@ -1,0 +1,8 @@
+{
+    "contacts":[
+        {"id":"1","name":"akshat","email":"akshatpatel@gmail.com", "userId":"1"}
+    ],
+    "users":[
+        {"id":"1","name":"akshatuser","email":"akshatpatel@gmail.com", "userId":"1"}
+    ]
+}
