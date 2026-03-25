@@ -27,3 +27,5 @@ db.json
 Top level keys in JSON
    ↓
 API endpoints -> /contacts,/users
+
+#5 Created login  page client  -> added auth logic server -> redirect to sucesful else show error
