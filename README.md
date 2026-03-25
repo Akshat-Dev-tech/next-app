@@ -29,3 +29,6 @@ Top level keys in JSON
 API endpoints -> /contacts,/users
 
 #5 Created login  page client  -> added auth logic server -> redirect to sucesful else show error
+
+
+#6 Added typecheck in auth.ts -> added login and logout logic using cookies to determine session

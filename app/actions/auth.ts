@@ -3,24 +3,30 @@
 import axios from "axios";
 import { error } from "console";
 import { redirect } from "next/navigation";
+import { setSession } from "./session";
 const API_URL = "http://localhost:3001/users"
 
-type userType ={
+export type userType ={
     id:number,
     name:string,
     email:string,
-    password:string
+    password?:string
+} | null
+
+type prevState = {
+    sucess:boolean,
+    error:boolean
 }
 
-const authenticateUser = async (prevState,formData:FormData) => {
+const authenticateUser = async (prevState : prevState,formData:FormData) => {
     const res = await axios.get<userType[]>(`${API_URL}?email=${formData.get("email")}&password=${formData.get("password")}`).catch(
         err=>{console.log(err)
         return null}
     )
-    console.log("Response from API",res.data)
+    console.log("Response from API",res?.data)
     console.log("Authenticating user on server...",formData)
     console.log("prevState",prevState)
-    const user:userType = res.data[0]
+    const user:userType = res?.data[0] || null
     if(!user){
         console.log("Authentication failed")
         return {
@@ -28,6 +34,7 @@ const authenticateUser = async (prevState,formData:FormData) => {
             error:true
         }
     }else{
+        await setSession({id:user.id,name:user.name,email:user.email})
         console.log("Authentication successful")
         redirect("/managepage")
     }
