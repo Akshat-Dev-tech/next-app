@@ -1,6 +1,7 @@
 "use server"
 import { cookies } from "next/headers"
 import { userType } from "./auth"
+import { redirect } from "next/navigation"
 export const setSession = async( user : userType)=>{
 console.log("Setting session in cookies",user)
 const cookieStore = await cookies()
@@ -24,4 +25,5 @@ export const getSession = async()=>{
 export const removeSession = async()=>{
     const cookieStore = await cookies()
     cookieStore.delete("usersession")
+    redirect("/Login")
 }

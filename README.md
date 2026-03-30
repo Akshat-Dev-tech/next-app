@@ -32,3 +32,12 @@ API endpoints -> /contacts,/users
 
 
 #6 Added typecheck in auth.ts -> added login and logout logic using cookies to determine session
+
+
+
+
+#7 Added contact api -> 
+on sucesful login -> /contact
+   -> show contacts using useActionState hook
+on sucesful lgout -> /Login
+

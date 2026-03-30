@@ -36,7 +36,7 @@ const authenticateUser = async (prevState : prevState,formData:FormData) => {
     }else{
         await setSession({id:user.id,name:user.name,email:user.email})
         console.log("Authentication successful")
-        redirect("/managepage")
+        redirect("/contact")
     }
     return {
         sucess:true,
