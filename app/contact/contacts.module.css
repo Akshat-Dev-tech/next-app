@@ -1,0 +1,27 @@
+.align-context-center{
+    text-align: center;
+}
+
+.display-flex-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parent > * {
+    border: 1px solid rgb(83, 78, 78);
+    border-radius: 10px;
+    padding: 8px;
+    margin: 15px;
+    width: 400px;
+}
+
+.parent > button{
+    background-color: rgb(86, 207, 111);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+

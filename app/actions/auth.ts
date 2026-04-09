@@ -16,7 +16,7 @@ export type userType ={
 type prevState = {
     sucess:boolean,
     error:boolean
-}
+} | null
 
 const authenticateUser = async (prevState : prevState,formData:FormData) => {
     const res = await axios.get<userType[]>(`${API_URL}?email=${formData.get("email")}&password=${formData.get("password")}`).catch(
