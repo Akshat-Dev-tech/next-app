@@ -1,20 +1,21 @@
 "use client"
 import React from 'react'
 import styles from './contacts.module.css'
+import { addcontactsHandler } from '../actions/contact'
 const AddCont = () => {
     // const alignContextCenter = styles["align-context-center"];
     const { "align-context-center": alignContextCenter , "display-flex-center" :displayflex ,parent} = styles
 
     // const [name, setName]=React.useState('')
-    const contactsHandler = (e) => {
-        e.preventDefault()
-        const formdata = new FormData(e.target)
-        const name= formdata.get("username")
-        const email= formdata.get("useremail")
-        const number= formdata.get("usernumber")
-        console.log(name,email,number)
-        // console.log(Form)
-    }
+    // const contactsHandler = (e) => {
+    //     e.preventDefault()
+    //     const formdata = new FormData(e.target)
+    //     const name= formdata.get("username")
+    //     const email= formdata.get("useremail")
+    //     const number= formdata.get("usernumber")
+    //     console.log(name,email,number)
+    //     // console.log(Form)
+    // }
 
         // In Normal JS 
         // 1. When the input is invalid, set your message
@@ -25,7 +26,7 @@ const AddCont = () => {
   return (
     <div>
         <h1  className={`text-3xl font-bold align-context-center ${alignContextCenter} ${displayflex}`}>Add Contacts</h1>
-        <form onSubmit={contactsHandler} className={`${displayflex} ${parent}`}>
+        <form action={addcontactsHandler} className={`${displayflex} ${parent}`}>
             {/* <input type="text" placeholder='Enter name'  onChange={(e)=>setName(e.target.value)}></input> */}
             <input type="text" placeholder='Enter name' name="username" required minLength={5}></input>
             <input type="email" placeholder=' Enter email' name="useremail" required ></input>

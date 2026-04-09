@@ -20,8 +20,28 @@ export const getContacts = async(prevState : prevStateType , userId:number)=>{
 }
 
 
-export const addContact = async(formData:FormData)=>{
+export const addcontactsHandler = async(formData:FormData)=>{
+console.log("Form data received in server action", formData)
+    const name= formData.get("username")
+    const email= formData.get("useremail")
+    const number= formData.get("usernumber")
+    const id = crypto.randomUUID()
+    try{
+        const res = await axios.post(API_URL,{
+            id,
+            name,
+            email,
+            phone:number,
+            userId:1
+        })
+        console.log('result',res.status)
+        return res.status
+    }catch(error){
+        console.error("Error adding contact", error)
+    }
 
 
+ 
+// return resizeBy.status
 }
 
