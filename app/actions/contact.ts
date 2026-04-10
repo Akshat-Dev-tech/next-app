@@ -1,6 +1,7 @@
 "use server"
 
 import axios from "axios"
+import { refresh } from "next/cache"
 
 const API_URL="http://localhost:3001/contacts"
 type userType = {
@@ -20,7 +21,7 @@ export const getContacts = async(prevState : prevStateType , userId:number)=>{
 }
 
 
-export const addcontactsHandler = async(formData:FormData)=>{
+export const addcontactsHandler = async(prevState , formData:FormData)=>{
 console.log("Form data received in server action", formData)
     const name= formData.get("username")
     const email= formData.get("useremail")
@@ -35,7 +36,9 @@ console.log("Form data received in server action", formData)
             userId:1
         })
         console.log('result',res.status)
-        return res.status
+        //added to see transtion of msg o cleint , oterwise it will be too fast UI changes
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        return { sucess : true , status:res.status}
     }catch(error){
         console.error("Error adding contact", error)
     }

@@ -23,5 +23,13 @@
     cursor: pointer;
 }
 
+.parent > p {
+    background-color: rgb(76, 80, 77);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
 
 
